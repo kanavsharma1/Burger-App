@@ -4,14 +4,16 @@ import Layout from './hoc/layout/layout';
 import BurgerBuilder from './container/BurgerBuilder/BurgerBuilder';
 import Checkout from './container/checkout/checkout';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
     <Router>
       <Layout>
-        <Route path="/" exact component={BurgerBuilder} />
-        <Route path="/checkout" component={Checkout} />
+        <Switch>
+          <Route path="/checkout" component={Checkout} />
+          <Route path="/" component={BurgerBuilder} />
+        </Switch>
       </Layout>
     </Router>
   );
